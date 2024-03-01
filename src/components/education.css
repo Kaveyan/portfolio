@@ -57,20 +57,29 @@
 }
 
 @media only screen and (max-width: 600px){
+    .body{
+        overflow-x: hidden;
+        
+      }
+      .edumain{
+        flex-direction: column;
+        margin-top: 2%;
+    }
     .logo img{
-        height: 20%;
-        margin-top:15px ;
-    }
-    .edutext{
-        margin-left: 10px;
-    }
-    .nss img{
         height: 0px;
         width: 0px;
     }
-    .nss{
-        margin-right:-10px;
+
+    
+    .edutext{
+        margin-left: 0px;
     }
+    .nss img{
+        height: 35px;
+        width: 35px;
+        margin-top: 10%;
+    }
+   
 
 }
 

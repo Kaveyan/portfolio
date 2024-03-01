@@ -93,12 +93,21 @@
   
   
 @media only screen and (max-width: 600px) {
+  .body{
+    overflow-x: hidden;
+    
+  }
   .project{
     box-shadow: 0px 25px 80px rgba(0, 0, 0, 0.15);
-    width: 550px;
+    width: 350px;
     height: 300px;
-    margin-left: 5%;
-
+}
+.project button{
+  margin-top: 0px;
+  font-size: small;
+}
+.pro svg{
+  font-size: 200%;
 }
 
 .projextbox{

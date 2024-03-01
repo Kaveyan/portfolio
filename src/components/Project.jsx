@@ -15,7 +15,7 @@ function Project() {
         <div className='project'>
              <p><FontAwesomeIcon icon={faBookBookmark} />Search Job</p>
              <p className='projecttext'>
-             🚀 job-seeking platform with integrates e-learning modules and freelance opportunities to create an all-in-one career hub
+             🚀 job-seeking platform with integrates e-learning modules and freelance opportunities all-in-one career 
              </p>
              <div className='pro'>
          

@@ -61,9 +61,13 @@
 
 }
 @media (max-width: 600px) {
+  .body{
+    overflow-x: hidden;
+    
+  }
     .titile {
       font-size: 211%; 
-      margin-left: 0px;
+      margin-right:18px ;
  
     }
     
@@ -81,10 +85,14 @@
       margin-left: 0%; 
     }
   
-    .mern-content,
-    .mern-content2 {
+    .mern-content{
       font-size: 25px;
       margin-left: 22px;
+      
+    }
+    .mern-content2 {
+      font-size: 25px;
+      margin-left: 42px;
       
     }
     

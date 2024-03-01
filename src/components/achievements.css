@@ -114,6 +114,10 @@
   transform: translateY(2px);
 }
 @media screen and (max-width: 600px) {
+    .body{
+        overflow-x: hidden;
+        
+      }
     .maintitle {
         font-size: 241%;
         margin-left: 10%;
@@ -124,9 +128,7 @@
         width: 50%;
         
     }
-    .bit{
-        margin-left: 20%;
-    }
+  
     
    
     .achititle {
@@ -138,6 +140,7 @@
     .box{
         display: flex;
         flex-direction: column;
+        
        
         
     }

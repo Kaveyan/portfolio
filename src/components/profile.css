@@ -42,6 +42,10 @@
 }
 
 @media (max-width: 600px) {
+  .body{
+    overflow-x: hidden;
+    
+  }
     .ti{
         font-family: 'Times New Roman', Times, serif;
       font-size: 300%;
