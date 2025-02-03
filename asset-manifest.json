@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.6f3d89b6.css",
-    "main.js": "/portfolio/static/js/main.9cc3d282.js",
+    "main.js": "/portfolio/static/js/main.06c569a0.js",
     "static/js/592.149027d7.chunk.js": "/portfolio/static/js/592.149027d7.chunk.js",
     "static/media/harvardLogo.png": "/portfolio/static/media/harvardLogo.542dab89bfb35b7f5c0d.png",
     "static/media/developer.png": "/portfolio/static/media/developer.613db10c04e5720eae98.png",
@@ -9,11 +9,11 @@
     "static/media/uiux.png": "/portfolio/static/media/uiux.5ae127f9fa22749e8ba1.png",
     "index.html": "/portfolio/index.html",
     "main.6f3d89b6.css.map": "/portfolio/static/css/main.6f3d89b6.css.map",
-    "main.9cc3d282.js.map": "/portfolio/static/js/main.9cc3d282.js.map",
+    "main.06c569a0.js.map": "/portfolio/static/js/main.06c569a0.js.map",
     "592.149027d7.chunk.js.map": "/portfolio/static/js/592.149027d7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6f3d89b6.css",
-    "static/js/main.9cc3d282.js"
+    "static/js/main.06c569a0.js"
   ]
 }
