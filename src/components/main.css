@@ -1,0 +1,211 @@
+
+
+
+body {
+    overflow-x: hidden; 
+  }
+  
+.heading p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 455%;
+  }
+  
+  .heading {
+    margin-top: 10%;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  .sub p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 222%;
+    width: 70%;
+    margin-left: 10%;
+    
+  }
+  
+  .social {
+    font-size: 355%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+  
+    text-decoration: none;
+
+  }
+  .social svg{
+    color: blueviolet;
+  }
+  
+  .social .lin {
+    margin-right: 42%;
+  }
+  
+  .social .git {
+    margin-right: 42%;
+  }
+  .content{
+    display: flex;
+
+  }
+  .img{
+    margin-right: 10%;
+
+  }
+  .img img{
+    height: 440px;
+    
+    border-radius: 10%;
+    margin-top: 70%;
+   
+  }
+
+  .resume button{
+
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #1928d1;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+    margin-left: 123px;
+    margin-top: 15%;
+    
+  }
+  
+  .button-30:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  }
+  
+  .button-30:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  .button-30:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+
+ 
+
+  @media (max-width: 600px) {
+    .body{
+      overflow-x: hidden;
+      
+    }
+    .heading p {
+      font-size: 120%;
+      display: flex; 
+      margin-left: 10%;
+      
+    }
+  
+    .heading {
+      margin-top: 40%;
+      font-size: 123%;
+      display: flex; 
+      width: 123%;
+      margin-left: 22%;
+    }
+    .sub{
+      font-size: 20px; 
+      width: 184%;
+      margin-left: 12%;
+    }
+  
+    .sub p {
+      font-size: 20px; 
+      padding-left: 13%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .social {
+      font-size: 260%; 
+      margin-left: 16%;
+      flex-direction: row; 
+      align-items: center; 
+    }
+  
+    .social .lin,
+    .social .git ,
+    .social .gmail{
+      margin-right: 10px; 
+      margin-bottom: 10px;
+      margin-left: 5%;
+    }
+   
+
+  
+    
+    .img img{
+      height: 120px;
+      border-radius: 10%;
+      margin-top: 140%;
+      margin-left: 23%;
+     
+  }
+  .resume button{
+
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #1928d1;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 38px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 14px;
+    padding-right: 14px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+  
+
+    font-size: 15px;
+    margin-left: 65px;
+    margin-top: 15%;
+    
+  }
+}
+  
+  

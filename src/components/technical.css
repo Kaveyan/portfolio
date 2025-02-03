@@ -1,0 +1,112 @@
+.titile{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 415%;
+    margin-top: 5%;
+ 
+}
+.mern{
+    display: flex;
+}
+.mern img{
+    width: 500px;
+    height: 500px;
+
+}
+.mern-content{
+    margin-left: 74px;
+    display: flex;
+    flex-direction: column;
+   
+
+}
+.merntitle{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 222%;
+    margin-top: 15%;
+}
+.icons{
+    font-size: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+
+.icons > svg {
+    margin-right: 10px; 
+  }
+
+.text p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 152%;
+}
+.merntitle2{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 222%;
+    margin-top: 11%;
+   
+    margin-left: 34%;
+}
+.mern-content2{
+    margin-right: 74px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+   
+
+}
+
+.mern img{
+    width: 500px;
+    height: 500px;
+
+}
+@media (max-width: 600px) {
+  .body{
+    overflow-x: hidden;
+    
+  }
+    .titile {
+      font-size: 211%; 
+      margin-right:18px ;
+ 
+    }
+    
+  
+    .mern img {
+      width: 0%; 
+      height: 0%; 
+      margin-right: 10px;
+      margin-top: 10%;
+    }
+  
+    .merntitle,
+    .merntitle2 {
+      font-size: 230%;
+      margin-left: 0%; 
+    }
+  
+    .mern-content{
+      font-size: 25px;
+      margin-left: 22px;
+      
+    }
+    .mern-content2 {
+      font-size: 25px;
+      margin-left: 42px;
+      
+    }
+    
+.text p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 90%;
+}
+  
+    .icons {
+      font-size: 150%; 
+      margin-top: 2%; 
+    }
+  
+    .icons > svg {
+      margin: 3px; 
+    }
+  }

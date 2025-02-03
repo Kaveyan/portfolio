@@ -1,0 +1,93 @@
+
+.ti{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 415%;
+    display: flex;
+    justify-content: center;
+}
+.code {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-right: 13%;
+}
+  
+  .main {
+    display: flex;
+   
+  }
+  
+  
+  
+  .star {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .star p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 222%;
+    margin-right: 10px; 
+  }
+  
+  .star > svg {
+    margin-top: 2%;
+    font-size: 230%;
+    color: gold;
+  }
+
+  .backend{
+    padding-right: 17%;
+  }
+  .dsa{
+    padding-right: 30%; 
+  }
+  .skill{
+    display: flex;
+    justify-content: center;
+   
+    
+    
+  }
+
+  @media (max-width: 600px) {
+    .body{
+      overflow-x: hidden;
+      
+    }
+    .ti {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 300%;
+    }
+  
+    .code {
+      margin-left: 13%; 
+    }
+  
+    .star p {
+      font-size: 200%;
+      
+    }
+  
+    .star > svg {
+      font-size: 90%; 
+    }
+  
+    .backend{
+      padding-right: 30%; 
+    }
+    .dsa{
+      padding-right: 62%; 
+    }
+  
+    .main {
+      justify-content: flex-start; 
+    }
+    .skill{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }

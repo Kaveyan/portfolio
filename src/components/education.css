@@ -1,0 +1,85 @@
+.edutitle{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 415%;
+    margin-top: 2%;
+    margin-left: 10px;
+  
+}
+.edumain{
+    display: flex;
+    margin-top: 2%;
+}
+.education{
+   margin-left: 60px;
+}
+
+.logo img{
+    height: 40%;
+    margin-top:30px ;
+}
+
+.clg{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 222%;
+}
+.edutext{
+    margin-left: 80px;
+}
+.clgtext{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 122%;
+}
+.nss{
+    display: flex;
+}
+.nss img{
+    height: 80px;
+    margin-top: 7%;
+}
+.nsstext{
+    margin-left: 40px;
+    
+
+}
+.nssmain{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 200%;
+
+}
+.nssmain-text{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 122%;
+
+}
+.education h2{
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px){
+    .body{
+        overflow-x: hidden;
+        
+      }
+      .edumain{
+        flex-direction: column;
+        margin-top: 2%;
+    }
+    .logo img{
+        height: 0px;
+        width: 0px;
+    }
+
+    
+    .edutext{
+        margin-left: 0px;
+    }
+    .nss img{
+        height: 35px;
+        width: 35px;
+        margin-top: 10%;
+    }
+   
+
+}
+
