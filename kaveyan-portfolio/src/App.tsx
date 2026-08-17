@@ -224,11 +224,11 @@ function CycleWords() {
 function Hero({ heroBgRef, heroContentRef }: { heroBgRef: React.RefObject<HTMLDivElement | null>; heroContentRef: React.RefObject<HTMLDivElement | null> }) {
   return (
     <section className="hero wrap" style={{ borderTop: 'none' }}>
-      <div className="hero-bg" ref={heroBgRef}>
+      <div className="hero-bg" ref={heroBgRef as React.RefObject<HTMLDivElement>}>
         <div className="grid" />
         <div className="glyph-float"><div className="glyph">K</div></div>
       </div>
-      <div className="hero-content" ref={heroContentRef}>
+      <div className="hero-content" ref={heroContentRef as React.RefObject<HTMLDivElement>}>
         <h1 className="name">
           <span className="line"><span style={{ animationDelay: '0.05s' }}>Kaveyan.</span></span>
         </h1>

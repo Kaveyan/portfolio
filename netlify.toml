@@ -1,4 +1,4 @@
 [build]
   base    = "kaveyan-portfolio"
   command = "npm run build"
-  publish = "kaveyan-portfolio/dist"
+  publish = "dist"
