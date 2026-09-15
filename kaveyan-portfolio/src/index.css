@@ -1,5 +1,5 @@
 /* =====================================================
-   kXai AGENCY — MINIMALIST WHITE THEME
+   kydo labs AGENCY — MINIMALIST WHITE THEME
    ===================================================== */
 
 /* ---------- Design tokens ---------- */
@@ -280,7 +280,7 @@ h1.name {
   font-family: 'Fraunces', serif;
   font-optical-sizing: auto;
   font-weight: 300;
-  font-size: clamp(3.4rem, 11vw, 9rem);
+  font-size: clamp(2.6rem, 8vw, 6.5rem);
   line-height: 0.92;
   letter-spacing: -0.01em;
   color: var(--paper);
@@ -1176,10 +1176,12 @@ footer .wrap {
 @keyframes boot-fill { to { width: 100%; } }
 
 /* ---------- Hero line reveal ---------- */
-.name .line { display: block; overflow: hidden; }
+/* Extra room below the baseline so descenders (the y in "kydo") aren't clipped; the
+   negative margin keeps the layout unchanged */
+.name .line { display: block; overflow: hidden; padding-bottom: 0.2em; margin-bottom: -0.2em; }
 .name .line span {
   display: inline-block;
-  transform: translateY(115%);
+  transform: translateY(130%);
   animation: line-up 0.9s cubic-bezier(.22, 1, .36, 1) forwards;
 }
 @keyframes line-up { to { transform: translateY(0); } }

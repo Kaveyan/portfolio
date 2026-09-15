@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useParallax } from './hooks/useParallax';
 
 /* ============================================================
-   kXai AGENCY DATA
+   kydo labs AGENCY DATA
    ============================================================ */
 const SERVICES = [
   {
@@ -86,7 +86,7 @@ const CASE_STUDIES = [
   },
   {
     year: '2026',
-    title: 'kxAI Automation Hub',
+    title: 'kydo labs Automation Hub',
     color: '#3B82F6',
     desc: 'Multi-agent AI workflow orchestrator integrating automated lead parsing, content generation, and database sync.',
     tag: 'AI System · Automation',
@@ -112,7 +112,7 @@ const FOUNDER = {
   role: 'Founder & CEO',
   photo: '/team/kaveyan.jpg',
   tagline: 'Turning ideas into clean, fast and scalable web applications.',
-  bio: 'With 4+ years in website development, Kaveyan leads every kxAI project — taking it from Figma design through frontend, backend and API integration to launch.',
+  bio: 'With 4+ years in website development, Kaveyan leads every kydo labs project — taking it from Figma design through frontend, backend and API integration to launch.',
   stack: [
     { name: 'React', file: 'react' },
     { name: 'Node.js', file: 'nodejs' },
@@ -133,13 +133,13 @@ const FOUNDER = {
 };
 
 const BOOKING_URL = 'https://cal.com/kaveyan-7keljs/30min';
-const WHATSAPP_URL = `https://wa.me/918248126335?text=${encodeURIComponent("Hi kxAI, I'd like to enquire about a project.")}`;
+const WHATSAPP_URL = `https://wa.me/918248126335?text=${encodeURIComponent("Hi kydo labs, I'd like to enquire about a project.")}`;
 
 const DIRECT_CONTACTS = [
   {
     id: 'booking',
     kind: 'Book a call',
-    detail: 'Free 30-min kxAI consultation',
+    detail: 'Free 30-min kydo labs consultation',
     action: 'Pick a time',
     href: BOOKING_URL,
     icon: '/logos/calendar.svg',
@@ -165,15 +165,15 @@ const DIRECT_CONTACTS = [
     copy: 'kaveyanb@gmail.com',
     action: 'Write to us',
     // Gmail's web compose works in any browser; mailto: silently fails without a default mail app
-    href: `https://mail.google.com/mail/?view=cm&fs=1&to=kaveyanb@gmail.com&su=${encodeURIComponent('Project enquiry – kxAI')}`,
+    href: `https://mail.google.com/mail/?view=cm&fs=1&to=kaveyanb@gmail.com&su=${encodeURIComponent('Project enquiry – kydo labs')}`,
     icon: '/logos/gmail.svg',
   },
 ];
 
 const MARQUEE_TEXT = (
   <>
-    <b>kxAI</b> · We make every page count · One-time investment, lifetime growth ·{' '}
-    <b>kxAI</b> · We make every page count · One-time investment, lifetime growth ·
+    <b>kydo labs</b> · We make every page count · One-time investment, lifetime growth ·{' '}
+    <b>kydo labs</b> · We make every page count · One-time investment, lifetime growth ·
   </>
 );
 
@@ -225,13 +225,13 @@ const TECH_LOGOS = [
   { name: 'Google Analytics', file: 'googleanalytics' },
 ];
 
-/** Tile anchor points in % of the hero — kept clear of the headline, nav, kx glyph and WhatsApp button */
+/** Tile anchor points in % of the hero — kept clear of the headline, nav, kl glyph and WhatsApp button */
 const LOGO_SLOTS: [number, number][] = [
-  [5, 18], [15, 24], [24, 14], [33, 29], [43, 16], [52, 33], [60, 17],
+  [5, 18], [15, 24], [24, 14], [33, 22], [43, 16], [52, 33], [60, 17],
   [64, 33], [58, 46], [95, 68], [56, 90], [70, 88], [80, 90],
 ];
 const LOGO_SLOTS_MOBILE: [number, number][] = [
-  [10, 14], [34, 11], [18, 27], [40, 22], [10, 38], [30, 36], [56, 50], [82, 50],
+  [10, 14], [44, 12], [18, 27], [40, 22], [10, 38], [30, 36], [82, 50],
 ];
 
 /* ============================================================
@@ -304,11 +304,11 @@ function Header() {
     <header ref={headerRef} className={`${scrolled ? 'scrolled' : ''}${open ? ' open' : ''}`}>
       <div className="nav-scrim" onClick={close} />
       <nav className="wrap">
-        <div className="logo">kx<span className="ai-accent">AI</span><span className="logo-dot">.</span></div>
+        <div className="logo">kydo{' '}<span className="ai-accent">labs</span><span className="logo-dot">.</span></div>
         <div className="navlinks" id="navLinks">
           <a href="#services" onClick={close}>Services</a>
           <a href="#work" onClick={close}>Work</a>
-          <a href="#about" onClick={close}>Why kxAI</a>
+          <a href="#about" onClick={close}>Why kydo labs</a>
           <a href="#contact" onClick={close}>Enquiry</a>
           <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="nav-cta" onClick={close}>Book a call</a>
         </div>
@@ -458,14 +458,14 @@ function Hero({ heroBgRef, heroContentRef }: { heroBgRef: React.RefObject<HTMLDi
     <section className="hero wrap" style={{ borderTop: 'none' }}>
       <div className="hero-bg" ref={heroBgRef as React.RefObject<HTMLDivElement>}>
         <div className="grid" />
-        <div className="glyph-float"><div className="glyph">kx</div></div>
+        <div className="glyph-float"><div className="glyph">kl</div></div>
         <LogoCloud />
       </div>
       <div className="hero-content" ref={heroContentRef as React.RefObject<HTMLDivElement>}>
         <h1 className="name">
           <span className="line">
             <span style={{ animationDelay: '0.05s' }}>
-              kx<span className="ai-accent">AI</span>.
+              KYDO{' '}<span className="ai-accent">labs</span>.
             </span>
           </span>
         </h1>
@@ -737,7 +737,7 @@ function WorkSection() {
               <a href="#contact" className={`work-card work-cta${active === WORK.length ? ' is-active' : ''}`}>
                 <span className="service-num">{pad(cardCount)} // NEXT</span>
                 <span className="work-cta-title">Your project<br /><em>could be next.</em></span>
-                <span className="work-cta-link">Start with kxAI →</span>
+                <span className="work-cta-link">Start with kydo labs →</span>
               </a>
             </div>
           </div>
@@ -780,7 +780,7 @@ function AboutSection() {
     <section id="about" className="wrap">
       <Reveal className="section-head">
         <div>
-          <h2 className="section-title about-title">Why kx<span className="ai-accent">AI</span>.</h2>
+          <h2 className="section-title about-title">Why kydo{' '}<span className="ai-accent">labs</span>.</h2>
         </div>
       </Reveal>
       <Reveal className="about-grid">
@@ -799,7 +799,7 @@ function AboutSection() {
   );
 }
 
-/** Founder section — who leads kxAI */
+/** Founder section — who leads kydo labs */
 function FounderSection() {
   return (
     <section id="founder" className="wrap">
@@ -811,7 +811,7 @@ function FounderSection() {
 
       <div className="founder-grid">
         <Reveal className="founder-photo">
-          <img src={FOUNDER.photo} alt="Kaveyan B, Founder & CEO of kxAI" loading="lazy" />        </Reveal>
+          <img src={FOUNDER.photo} alt="Kaveyan B, Founder & CEO of kydo labs" loading="lazy" />        </Reveal>
 
         <Reveal className="founder-info">
           <span className="founder-role">{FOUNDER.role}</span>
@@ -839,7 +839,7 @@ function FounderSection() {
   );
 }
 
-/** Enquiry section — ways to reach kxAI directly */
+/** Enquiry section — ways to reach kydo labs directly */
 function ContactSection() {
   const [emailCopied, setEmailCopied] = useState(false);
 
@@ -862,7 +862,7 @@ function ContactSection() {
       <Reveal className="contact-cta">
         From first click to final sale,<br />
         we make every page count.<br />
-        <em>Start with kxAI.</em>
+        <em>Start with kydo labs.</em>
       </Reveal>
 
       <Reveal className="direct-contact">
@@ -897,7 +897,7 @@ function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       className="wa-float"
-      aria-label="Chat with kxAI on WhatsApp"
+      aria-label="Chat with kydo labs on WhatsApp"
     >
       <span className="wa-float-label">Chat with us</span>
       <span className="wa-float-icon" aria-hidden="true" />
@@ -910,7 +910,7 @@ function Footer() {
   return (
     <footer>
       <div className="wrap">
-        <div className="foot-note">© 2026 kxAI. All rights reserved.</div>
+        <div className="foot-note">© 2026 kydo labs. All rights reserved.</div>
         <div className="foot-note">Minimalist AI & Web Systems Studio.</div>
       </div>
     </footer>
