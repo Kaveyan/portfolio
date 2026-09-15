@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "cd kaveyan-portfolio && npm install",
+  "buildCommand": "cd kaveyan-portfolio && npm run build",
+  "outputDirectory": "kaveyan-portfolio/dist"
+}
