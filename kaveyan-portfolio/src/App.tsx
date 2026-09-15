@@ -8,8 +8,8 @@ const SERVICES = [
   {
     num: '01',
     title: 'Website Development & Redesign',
-    desc: 'Zero-to-one custom web development, high-converting E-Commerce stores, booking appointment platforms, interactive 3D WebGL experiences, and Spotify websites engineered for speed and scale.',
-    tags: ['Website Development', 'Website Redesign', 'E-Commerce', 'Booking Appointment', '3D Web', 'Spotify Website'],
+    desc: 'Zero-to-one custom web development, high-converting E-Commerce stores, booking appointment platforms, interactive 3D WebGL experiences, and Shopify websites engineered for speed and scale.',
+    tags: ['Website Development', 'Website Redesign', 'E-Commerce', 'Booking Appointment', '3D Web', 'Shopify Website'],
     color: '#e11d48',
     topBarGradient: 'linear-gradient(90deg, #e11d48 0%, #f43f5e 50%, #fb7185 100%)',
     gradient: 'linear-gradient(135deg, #ffffff 0%, #fff1f2 60%, #ffe4e6 100%)',
@@ -108,22 +108,65 @@ const SKILLS_LIST = [
   { label: 'Time & work saved', value: '90%' },
 ];
 
+const FOUNDER = {
+  role: 'Founder & CEO',
+  photo: '/team/kaveyan.jpg',
+  tagline: 'Turning ideas into clean, fast and scalable web applications.',
+  bio: 'With 4+ years in website development, Kaveyan leads every kxAI project — taking it from Figma design through frontend, backend and API integration to launch.',
+  stack: [
+    { name: 'React', file: 'react' },
+    { name: 'Node.js', file: 'nodejs' },
+    { name: 'Express', file: 'express' },
+    { name: 'MongoDB', file: 'mongodb' },
+    { name: 'JavaScript', file: 'javascript' },
+    { name: 'Meta Ads', file: 'metaads' },
+    { name: 'Supabase', file: 'supabase' },
+    { name: 'Shopify', file: 'shopify' },
+    { name: 'n8n', file: 'n8n' },
+    { name: 'AWS', file: 'aws' },
+    { name: 'Framer', file: 'framer' },
+    { name: 'GitHub', file: 'github' },
+    { name: 'VS Code', file: 'vscode' },
+    { name: 'Figma', file: 'figma' },
+  ],
+  focus: ['Website Development', 'AI Automation', 'Lead Generation', 'App Development'],
+};
+
+const BOOKING_URL = 'https://cal.com/kaveyan-7keljs/30min';
+const WHATSAPP_URL = `https://wa.me/918248126335?text=${encodeURIComponent("Hi kxAI, I'd like to enquire about a project.")}`;
+
 const DIRECT_CONTACTS = [
+  {
+    id: 'booking',
+    kind: 'Book a call',
+    detail: 'Free 30-min kxAI consultation',
+    action: 'Pick a time',
+    href: BOOKING_URL,
+    icon: '/logos/calendar.svg',
+  },
   {
     id: 'whatsapp',
     kind: 'WhatsApp',
-    value: '+91 82481 26335',
     action: 'Chat with us',
-    href: `https://wa.me/918248126335?text=${encodeURIComponent("Hi kxAI, I'd like to enquire about a project.")}`,
+    href: WHATSAPP_URL,
     icon: '/logos/whatsapp.svg',
   },
   {
     id: 'instagram',
     kind: 'Instagram',
-    value: '@built_with_kaveyan',
     action: 'See our work',
     href: 'https://www.instagram.com/built_with_kaveyan/',
     icon: '/logos/instagram.svg',
+  },
+  {
+    id: 'email',
+    kind: 'Email',
+    detail: 'kaveyanb@gmail.com',
+    copy: 'kaveyanb@gmail.com',
+    action: 'Write to us',
+    // Gmail's web compose works in any browser; mailto: silently fails without a default mail app
+    href: `https://mail.google.com/mail/?view=cm&fs=1&to=kaveyanb@gmail.com&su=${encodeURIComponent('Project enquiry – kxAI')}`,
+    icon: '/logos/gmail.svg',
   },
 ];
 
@@ -140,6 +183,11 @@ const TECH_LOGOS = [
   { name: 'Claude', file: 'claude' },
   { name: 'ChatGPT', file: 'chatgpt' },
   { name: 'Gemini', file: 'gemini' },
+  { name: 'Lovable', file: 'lovable' },
+  { name: 'Framer', file: 'framer' },
+  { name: 'Supabase', file: 'supabase' },
+  { name: 'Shopify', file: 'shopify' },
+  { name: 'Meta Ads', file: 'metaads' },
   { name: 'n8n', file: 'n8n' },
   { name: 'React', file: 'react' },
   { name: 'Next.js', file: 'nextjs' },
@@ -177,10 +225,10 @@ const TECH_LOGOS = [
   { name: 'Google Analytics', file: 'googleanalytics' },
 ];
 
-/** Tile anchor points in % of the hero — kept clear of the headline, nav and kx glyph */
+/** Tile anchor points in % of the hero — kept clear of the headline, nav, kx glyph and WhatsApp button */
 const LOGO_SLOTS: [number, number][] = [
-  [5, 18], [15, 34], [24, 14], [33, 29], [43, 16], [52, 33], [60, 17],
-  [64, 33], [58, 46], [95, 68], [56, 90], [70, 88], [84, 90], [95, 86],
+  [5, 18], [15, 24], [24, 14], [33, 29], [43, 16], [52, 33], [60, 17],
+  [64, 33], [58, 46], [95, 68], [56, 90], [70, 88], [80, 90],
 ];
 const LOGO_SLOTS_MOBILE: [number, number][] = [
   [10, 14], [34, 11], [18, 27], [40, 22], [10, 38], [30, 36], [56, 50], [82, 50],
@@ -220,7 +268,7 @@ function Cursor() {
       el.style.top = e.clientY + 'px';
     };
     window.addEventListener('mousemove', onMove);
-    const targets = document.querySelectorAll('a, .entry, button, .service-card, .pill-btn');
+    const targets = document.querySelectorAll('a, .entry, button, .service-card');
     const enter = () => el.classList.add('hovering');
     const leave = () => el.classList.remove('hovering');
     targets.forEach(t => { t.addEventListener('mouseenter', enter); t.addEventListener('mouseleave', leave); });
@@ -262,6 +310,7 @@ function Header() {
           <a href="#work" onClick={close}>Work</a>
           <a href="#about" onClick={close}>Why kxAI</a>
           <a href="#contact" onClick={close}>Enquiry</a>
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="nav-cta" onClick={close}>Book a call</a>
         </div>
         <button
           className="navtoggle"
@@ -450,6 +499,46 @@ function Reveal({ children, className = '', style }: { children: React.ReactNode
 
 /** Services section with colorful cards and section scroll stacking effect */
 function ServicesSection() {
+  const stackRef = useRef<HTMLDivElement>(null);
+
+  // Phones: give every stacked card the same bottom edge so the stack builds cleanly and
+  // leaves together; if the cards can't fit on screen, fall back to a plain list
+  useEffect(() => {
+    const stack = stackRef.current;
+    if (!stack) return;
+    const mq = window.matchMedia('(max-width: 640px)');
+    let lastWidth = -1;
+
+    const layout = (force = false) => {
+      // Ignore height-only resizes (mobile address bar showing/hiding while scrolling)
+      if (!force && window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      const wrappers = Array.from(stack.children) as HTMLElement[];
+      const cards = wrappers.map(w => w.firstElementChild as HTMLElement);
+      cards.forEach(c => { c.style.minHeight = ''; });
+      stack.classList.remove('is-flat');
+      if (!mq.matches) return;
+      const tops = wrappers.map(w => parseFloat(getComputedStyle(w).top) || 0);
+      const bottom = Math.max(...cards.map((c, i) => tops[i] + c.offsetHeight));
+      if (bottom > window.innerHeight - 16) {
+        stack.classList.add('is-flat');
+        return;
+      }
+      cards.forEach((c, i) => { c.style.minHeight = `${bottom - tops[i]}px`; });
+    };
+
+    const onResize = () => layout();
+    const onBreakpoint = () => layout(true);
+    layout(true);
+    document.fonts?.ready.then(() => layout(true));
+    window.addEventListener('resize', onResize);
+    mq.addEventListener('change', onBreakpoint);
+    return () => {
+      window.removeEventListener('resize', onResize);
+      mq.removeEventListener('change', onBreakpoint);
+    };
+  }, []);
+
   return (
     <section id="services" className="wrap services-wrap">
       <Reveal className="section-head">
@@ -458,15 +547,12 @@ function ServicesSection() {
         </div>
       </Reveal>
 
-      <div className="services-stack">
+      <div className="services-stack" ref={stackRef}>
         {SERVICES.map((s, idx) => (
           <div
             key={s.num}
             className="service-card-sticky"
-            style={{
-              top: `calc(100px + ${idx * 30}px)`,
-              zIndex: idx + 1,
-            }}
+            style={{ '--i': idx, zIndex: idx + 1 } as React.CSSProperties}
           >
             <div
               className="service-card colorful-card"
@@ -484,20 +570,6 @@ function ServicesSection() {
                 <div className="card-header-row">
                   <div className="service-num" style={{ color: s.color }}>
                     {s.num} // SERVICE
-                  </div>
-                  <div
-                    className="card-color-badge"
-                    style={{
-                      background: s.tagBg,
-                      color: s.tagColor,
-                      border: `1px solid ${s.border}`,
-                    }}
-                  >
-                    <span
-                      className="badge-dot"
-                      style={{ background: s.color, boxShadow: `0 0 8px ${s.color}` }}
-                    />
-                    kxAI Spec
                   </div>
                 </div>
 
@@ -727,85 +799,56 @@ function AboutSection() {
   );
 }
 
-/** Interactive Contact / Project Inquiry section */
+/** Founder section — who leads kxAI */
+function FounderSection() {
+  return (
+    <section id="founder" className="wrap">
+      <Reveal className="section-head">
+        <div>
+          <h2 className="section-title">Who's leading this.</h2>
+        </div>
+      </Reveal>
+
+      <div className="founder-grid">
+        <Reveal className="founder-photo">
+          <img src={FOUNDER.photo} alt="Kaveyan B, Founder & CEO of kxAI" loading="lazy" />        </Reveal>
+
+        <Reveal className="founder-info">
+          <span className="founder-role">{FOUNDER.role}</span>
+          <h3 className="founder-name">Kaveyan <span className="highlight-text">B</span></h3>
+          <p className="founder-tagline">{FOUNDER.tagline}</p>
+          <p className="founder-bio">{FOUNDER.bio}</p>
+
+          <div>
+            <span className="founder-label">Expertise</span>
+            <ul className="founder-stack">
+              {FOUNDER.stack.map(t => (
+                <li key={t.file}><img src={`/logos/${t.file}.svg`} alt="" />{t.name}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <span className="founder-label">Focus areas</span>
+            <ul className="founder-focus">
+              {FOUNDER.focus.map(item => <li key={item}>{item}</li>)}
+            </ul>
+          </div>        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/** Enquiry section — ways to reach kxAI directly */
 function ContactSection() {
-  const [selectedService, setSelectedService] = useState('Website Development');
-  const [selectedBudget, setSelectedBudget] = useState('$5k - $15k');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [projectBrief, setProjectBrief] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [showAdminInquiries, setShowAdminInquiries] = useState(false);
-  const [savedInquiries, setSavedInquiries] = useState<any[]>([]);
+  const [emailCopied, setEmailCopied] = useState(false);
 
-  useEffect(() => {
-    try {
-      const stored = JSON.parse(localStorage.getItem('kxai_inquiries') || '[]');
-      setSavedInquiries(stored);
-    } catch {
-      setSavedInquiries([]);
-    }
-  }, [formSubmitted, showAdminInquiries]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const inquiry = {
-      id: Date.now(),
-      name,
-      email,
-      service: selectedService,
-      budget: selectedBudget,
-      message: projectBrief,
-      date: new Date().toLocaleString(),
-    };
-
-    // Save to localStorage as local backup
-    try {
-      const existing = JSON.parse(localStorage.getItem('kxai_inquiries') || '[]');
-      const updated = [inquiry, ...existing];
-      localStorage.setItem('kxai_inquiries', JSON.stringify(updated));
-      setSavedInquiries(updated);
-    } catch (err) {
-      console.error('Failed to save inquiry to local storage', err);
-    }
-
-    // Email delivery via Web3Forms API
-    try {
-      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
-      
-      if (accessKey) {
-        await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            access_key: accessKey,
-            name,
-            email,
-            subject: `New Inquiry from ${name} - ${selectedService}`,
-            service: selectedService,
-            budget: selectedBudget,
-            message: projectBrief,
-            from_name: 'kxAI Portfolio Inquiry'
-          })
-        });
-      }
-    } catch (err) {
-      console.error('Error delivering email inquiry:', err);
-    } finally {
-      setIsSubmitting(false);
-      setFormSubmitted(true);
-    }
-  };
-
-  const clearInquiries = () => {
-    localStorage.removeItem('kxai_inquiries');
-    setSavedInquiries([]);
+  // Also copy the address, for visitors who don't use Gmail
+  const copyEmail = (address: string) => {
+    navigator.clipboard?.writeText(address).then(() => {
+      setEmailCopied(true);
+      window.setTimeout(() => setEmailCopied(false), 2500);
+    }).catch(() => {});
   };
 
   return (
@@ -822,192 +865,43 @@ function ContactSection() {
         <em>Start with kxAI.</em>
       </Reveal>
 
-      <Reveal className="inquiry-wrapper">
-        {formSubmitted ? (
-          <div className="form-success-msg">
-            <div style={{ fontSize: '1.2rem', fontWeight: 600, color: '#16a34a', marginBottom: '0.5rem' }}>
-              ✓ Inquiry Received Successfully!
-            </div>
-            <p style={{ color: 'var(--paper-dim)', margin: 0, lineHeight: 1.6 }}>
-              Thank you, <strong>{name || 'there'}</strong>. Your project brief for <strong>{selectedService}</strong> ({selectedBudget}) has been submitted. A kxAI engineer will review your inquiry and email you back at <strong>{email}</strong> within 24 hours.
-            </p>
-            <button
-              type="button"
-              className="pill-btn"
-              style={{ marginTop: '1.5rem' }}
-              onClick={() => {
-                setFormSubmitted(false);
-                setName('');
-                setEmail('');
-                setProjectBrief('');
-              }}
-            >
-              ← Submit Another Inquiry
-            </button>
-          </div>
-        ) : (
-          <form className="inquiry-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label className="form-label">01 // Select Desired Service</label>
-              <div className="pills-group">
-                {[
-                  'Website Development',
-                  'Website Redesign',
-                  'E-Commerce',
-                  'Booking Appointment',
-                  '3D Web & WebGL',
-                  'Spotify Website',
-                  'Chat Bot',
-                  'AI Automation',
-                  'WhatsApp Automation',
-                  'Ads Marketing (Meta & Google)',
-                ].map(s => (
-                  <button
-                    key={s}
-                    type="button"
-                    className={`pill-btn ${selectedService === s ? 'selected' : ''}`}
-                    onClick={() => setSelectedService(s)}
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label className="form-label">02 // Project Budget Range</label>
-              <div className="pills-group">
-                {['< $5k', '$5k - $15k', '$15k - $30k', '$30k+'].map(b => (
-                  <button
-                    key={b}
-                    type="button"
-                    className={`pill-btn ${selectedBudget === b ? 'selected' : ''}`}
-                    onClick={() => setSelectedBudget(b)}
-                  >
-                    {b}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label className="form-label">03 // Your Contact Information</label>
-              <input
-                type="text"
-                className="form-input"
-                placeholder="Your Name or Company"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                required
-              />
-              <input
-                type="email"
-                className="form-input"
-                placeholder="Your Email Address"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label className="form-label">04 // Project Brief / Objectives</label>
-              <textarea
-                className="form-textarea"
-                placeholder="Tell us about your project goals, scope, timeline, or key technical requirements..."
-                value={projectBrief}
-                onChange={e => setProjectBrief(e.target.value)}
-                required
-              />
-            </div>
-
-            <button type="submit" className="submit-btn" disabled={isSubmitting}>
-              {isSubmitting ? 'Sending Inquiry...' : 'Send Project Brief →'}
-            </button>
-          </form>
-        )}
-      </Reveal>
-
       <Reveal className="direct-contact">
-        <span className="direct-label">Or reach us directly</span>
+        <span className="direct-label">Reach us directly</span>
         {DIRECT_CONTACTS.map(c => (
           <a
             key={c.id}
             href={c.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={c.href.startsWith('http') ? '_blank' : undefined}
+            rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
             className={`direct-card direct-${c.id}`}
+            onClick={c.copy ? () => copyEmail(c.copy ?? '') : undefined}
           >
             <span className="direct-icon"><img src={c.icon} alt="" /></span>
             <span className="direct-text">
-              <span className="direct-kind">{c.kind}</span>
-              <span className="direct-value">{c.value}</span>
-              <span className="direct-action">{c.action} →</span>
+              <span className="direct-value">{c.kind}</span>
+              {c.detail && <span className="direct-detail">{c.detail}</span>}
+              <span className="direct-action">{c.copy && emailCopied ? 'Address copied ✓' : `${c.action} →`}</span>
             </span>
           </a>
         ))}
       </Reveal>
-
-      {/* Admin / Saved Inquiries viewer */}
-      <Reveal className="contact-row" style={{ marginTop: '3rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', flexWrap: 'wrap', gap: '1rem' }}>
-          <div className="contact-socials">
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer">X / Twitter</a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="mailto:hello@kxai.dev">hello@kxai.dev</a>
-          </div>
-
-          <button
-            type="button"
-            className="pill-btn"
-            style={{ fontSize: '0.75rem', opacity: 0.8 }}
-            onClick={() => setShowAdminInquiries(!showAdminInquiries)}
-          >
-            📋 {showAdminInquiries ? 'Hide Admin Submissions' : `View Local Inquiries (${savedInquiries.length})`}
-          </button>
-        </div>
-
-        {showAdminInquiries && (
-          <div style={{ width: '100%', marginTop: '1.5rem', background: 'rgba(9, 9, 11, 0.04)', padding: '1.5rem', borderRadius: '16px', border: '1px solid var(--line)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-              <h4 style={{ margin: 0, fontFamily: 'JetBrains Mono', fontSize: '0.9rem' }}>
-                LOCAL INQUIRIES LOG ({savedInquiries.length})
-              </h4>
-              {savedInquiries.length > 0 && (
-                <button
-                  onClick={clearInquiries}
-                  style={{ background: 'none', border: 'none', color: '#e11d48', cursor: 'pointer', fontSize: '0.8rem', fontFamily: 'JetBrains Mono' }}
-                >
-                  Clear All Log
-                </button>
-              )}
-            </div>
-
-            {savedInquiries.length === 0 ? (
-              <p style={{ color: 'var(--paper-dim)', fontSize: '0.85rem' }}>No submitted inquiries found in local storage yet. Submit the form above to test!</p>
-            ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                {savedInquiries.map((inq: any) => (
-                  <div key={inq.id} style={{ background: '#fff', padding: '1rem', borderRadius: '10px', border: '1px solid rgba(0,0,0,0.08)', fontSize: '0.85rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 600, color: '#09090b', marginBottom: '0.3rem' }}>
-                      <span>{inq.name} ({inq.email})</span>
-                      <span style={{ fontSize: '0.75rem', color: '#666' }}>{inq.date}</span>
-                    </div>
-                    <div style={{ color: '#0891b2', fontSize: '0.8rem', fontWeight: 500, marginBottom: '0.4rem' }}>
-                      {inq.service} • {inq.budget}
-                    </div>
-                    <div style={{ color: '#374151', whiteSpace: 'pre-wrap' }}>
-                      {inq.message}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-      </Reveal>
     </section>
+  );
+}
+
+/** Floating WhatsApp button, pinned to the bottom-right corner */
+function WhatsAppFloat() {
+  return (
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="wa-float"
+      aria-label="Chat with kxAI on WhatsApp"
+    >
+      <span className="wa-float-label">Chat with us</span>
+      <span className="wa-float-icon" aria-hidden="true" />
+    </a>
   );
 }
 
@@ -1051,8 +945,10 @@ export default function App() {
       <ServicesSection />
       <WorkSection />
       <AboutSection />
+      <FounderSection />
       <ContactSection />
       <Footer />
+      <WhatsAppFloat />
     </>
   );
 }
