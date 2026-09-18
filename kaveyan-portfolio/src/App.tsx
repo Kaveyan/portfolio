@@ -138,7 +138,7 @@ const WHATSAPP_URL = `https://wa.me/918248126335?text=${encodeURIComponent("Hi k
 const DIRECT_CONTACTS = [
   {
     id: 'booking',
-    kind: 'Book a call',
+    kind: 'Book free call',
     detail: 'Free 30-min kydo systems consultation',
     action: 'Pick a time',
     href: BOOKING_URL,
@@ -310,7 +310,7 @@ function Header() {
           <a href="#work" onClick={close}>Work</a>
           <a href="#about" onClick={close}>Why kydo systems</a>
           <a href="#contact" onClick={close}>Enquiry</a>
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="nav-cta" onClick={close}>Book a call</a>
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="nav-cta" onClick={close}>Book free call</a>
         </div>
         <button
           className="navtoggle"
