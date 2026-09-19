@@ -95,9 +95,30 @@ const CASE_STUDIES = [
 ];
 
 const WORK = [
-  { num: '01', title: 'The Village Coco', src: '/videos/coco.mp4', length: '0:21' },
-  { num: '02', title: 'Varnaam Mind Care', src: '/videos/varnaam.mp4', length: '0:24' },
-  { num: '03', title: 'Fitness Trainer', src: '/videos/fitness-trainer.mp4', length: '0:13' },
+  {
+    num: '01',
+    title: 'The Village Coco',
+    src: '/images/coco.webp',
+    fallback: '/images/coco.jpg',
+    tag: 'E-Commerce · Export Portal',
+    alt: 'The Village Coco website preview',
+  },
+  {
+    num: '02',
+    title: 'Varnaam Mind Care',
+    src: '/images/varnaam.webp',
+    fallback: '/images/varnaam.jpg',
+    tag: 'Healthcare · Counseling Platform',
+    alt: 'Varnaam Mind Care website preview',
+  },
+  {
+    num: '03',
+    title: 'Fitness Trainer',
+    src: '/images/fitness-trainer.webp',
+    fallback: '/images/fitness-trainer.jpg',
+    tag: 'Fitness · Personal Training',
+    alt: 'Fitness Trainer website preview',
+  },
 ];
 
 const SKILLS_LIST = [
@@ -111,6 +132,7 @@ const SKILLS_LIST = [
 const FOUNDER = {
   role: 'Founder & CEO',
   photo: '/team/kaveyan.jpg',
+  photoWebp: '/team/kaveyan.webp',
   tagline: 'Turning ideas into clean, fast and scalable web applications.',
   bio: 'With 4+ years in website development, Kaveyan leads every kydo systems project — taking it from Figma design through frontend, backend and API integration to launch.',
   stack: [
@@ -387,7 +409,15 @@ function LogoCloud() {
     const mq = window.matchMedia('(max-width: 640px)');
     const onChange = () => setMobile(mq.matches);
     mq.addEventListener('change', onChange);
-    TECH_LOGOS.forEach(({ file }) => { new Image().src = `/logos/${file}.svg`; });
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(() => {
+        TECH_LOGOS.forEach(({ file }) => { new Image().src = `/logos/${file}.svg`; });
+      });
+    } else {
+      setTimeout(() => {
+        TECH_LOGOS.forEach(({ file }) => { new Image().src = `/logos/${file}.svg`; });
+      }, 1000);
+    }
     return () => mq.removeEventListener('change', onChange);
   }, []);
 
@@ -444,7 +474,7 @@ function LogoCloud() {
             className="logo-float"
             style={{ animationDuration: `${5 + (logo % 4)}s`, animationDelay: `${-((logo * 1.3) % 6)}s` }}
           >
-            <img src={`/logos/${TECH_LOGOS[logo].file}.svg`} alt="" draggable={false} />
+            <img src={`/logos/${TECH_LOGOS[logo].file}.svg`} alt="" draggable={false} width={28} height={28} loading="lazy" decoding="async" />
           </div>
         </div>
       ))}
@@ -602,64 +632,34 @@ function ServicesSection() {
   );
 }
 
-/** Video card — silent, plays while on screen */
-function WorkVideoCard({ item, active }: { item: (typeof WORK)[number]; active: boolean }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const userPaused = useRef(false);
-  const [playing, setPlaying] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.muted = true;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const io = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) video.pause();
-      else if (!reduceMotion && !userPaused.current) video.play().catch(() => {});
-    }, { threshold: 0.4 });
-    io.observe(video);
-    return () => io.disconnect();
-  }, []);
-
-  const togglePlay = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    userPaused.current = !video.paused;
-    if (video.paused) video.play().catch(() => {});
-    else video.pause();
-  };
-
+/** Image card — ultra-fast loading, responsive WebP image with JPG fallback */
+function WorkImageCard({ item, active, isFirst }: { item: (typeof WORK)[number]; active: boolean; isFirst: boolean }) {
   return (
     <article className={`work-card${active ? ' is-active' : ''}`}>
       <div className="work-media">
-        <video
-          ref={videoRef}
-          src={item.src}
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
-          onClick={togglePlay}
-          aria-label={`${item.title} video`}
-        />
-        <div className="work-controls">
-          <button type="button" className="work-ctrl" onClick={togglePlay} aria-label={`${playing ? 'Pause' : 'Play'} ${item.title}`}>
-            {playing ? 'Pause' : 'Play'}
-          </button>
-        </div>
+        <picture>
+          <source srcSet={item.src} type="image/webp" />
+          <img
+            src={item.fallback}
+            alt={item.alt}
+            loading={isFirst ? 'eager' : 'lazy'}
+            fetchPriority={isFirst ? 'high' : 'low'}
+            decoding="async"
+            width={1920}
+            height={925}
+          />
+        </picture>
+        <span className="work-badge">{item.tag}</span>
       </div>
       <div className="work-info">
         <span className="service-num">{item.num} // PROJECT</span>
         <h3 className="work-title">{item.title}</h3>
-        <span className="work-length">{item.length}</span>
       </div>
     </article>
   );
 }
 
-/** Our Work — vertical scroll drives a pinned horizontal track of video cards */
+/** Our Work — vertical scroll drives a pinned horizontal track of work cards */
 function WorkSection() {
   const pinRef = useRef<HTMLDivElement>(null);
   const stickyRef = useRef<HTMLDivElement>(null);
@@ -732,7 +732,7 @@ function WorkSection() {
           <div className="work-viewport">
             <div className="work-track" ref={trackRef}>
               {WORK.map((item, i) => (
-                <WorkVideoCard key={item.src} item={item} active={active === i} />
+                <WorkImageCard key={item.src} item={item} active={active === i} isFirst={i === 0} />
               ))}
               <a href="#contact" className={`work-card work-cta${active === WORK.length ? ' is-active' : ''}`}>
                 <span className="service-num">{pad(cardCount)} // NEXT</span>
@@ -811,7 +811,11 @@ function FounderSection() {
 
       <div className="founder-grid">
         <Reveal className="founder-photo">
-          <img src={FOUNDER.photo} alt="Kaveyan B, Founder & CEO of kydo systems" loading="lazy" />        </Reveal>
+          <picture>
+            <source srcSet={FOUNDER.photoWebp} type="image/webp" />
+            <img src={FOUNDER.photo} alt="Kaveyan B, Founder & CEO of kydo systems" loading="lazy" decoding="async" width={400} height={400} />
+          </picture>
+        </Reveal>
 
         <Reveal className="founder-info">
           <span className="founder-role">{FOUNDER.role}</span>
@@ -823,7 +827,7 @@ function FounderSection() {
             <span className="founder-label">Expertise</span>
             <ul className="founder-stack">
               {FOUNDER.stack.map(t => (
-                <li key={t.file}><img src={`/logos/${t.file}.svg`} alt="" />{t.name}</li>
+                <li key={t.file}><img src={`/logos/${t.file}.svg`} alt="" width={20} height={20} loading="lazy" decoding="async" />{t.name}</li>
               ))}
             </ul>
           </div>
@@ -876,7 +880,7 @@ function ContactSection() {
             className={`direct-card direct-${c.id}`}
             onClick={c.copy ? () => copyEmail(c.copy ?? '') : undefined}
           >
-            <span className="direct-icon"><img src={c.icon} alt="" /></span>
+            <span className="direct-icon"><img src={c.icon} alt="" width={24} height={24} loading="lazy" decoding="async" /></span>
             <span className="direct-text">
               <span className="direct-value">{c.kind}</span>
               {c.detail && <span className="direct-detail">{c.detail}</span>}
